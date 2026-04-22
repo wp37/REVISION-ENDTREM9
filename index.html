@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Success 9 - Ôn tập Cuối kỳ 2 | Unit 7→12 & Review 3-4 | Thầy Võ Ngọc Tùng</title>
+  <meta name="description"
+    content="Web ôn tập Tiếng Anh Cuối kỳ 2 lớp 9 Global Success: Unit 7-12, Review 3-4. Có quiz 70 câu, từ vựng và ngữ pháp chi tiết." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ôn tập Cuối kỳ 2 – Tiếng Anh 9 Global Success" />
+  <meta property="og:description"
+    content="Web ôn tập Tiếng Anh Cuối kỳ 2 lớp 9 Global Success: Unit 7-12, Review 3-4. Quiz 70 câu, từ vựng và ngữ pháp chi tiết. Thầy Võ Ngọc Tùng – THCS Nguyễn Văn Bánh." />
+  <meta property="og:image" content="/mua-he.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ôn tập Cuối kỳ 2 – Tiếng Anh 9 Global Success" />
+  <meta name="twitter:description"
+    content="Web ôn tập Tiếng Anh Cuối kỳ 2 lớp 9 Global Success: Unit 7-12, Review 3-4. Quiz 70 câu, từ vựng và ngữ pháp chi tiết." />
+  <meta name="twitter:image" content="/mua-he.jpg" />
+
+  <!-- Zalo specific -->
+  <meta itemprop="name" content="Ôn tập Cuối kỳ 2 – Tiếng Anh 9 Global Success" />
+  <meta itemprop="description"
+    content="Web ôn tập Tiếng Anh Cuối kỳ 2 lớp 9 Global Success: Unit 7-12, Review 3-4. Quiz 70 câu. Thầy Võ Ngọc Tùng." />
+  <meta itemprop="image" content="/mua-he.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-gradient {
+      /* Lớp 9 Cuối kỳ: Emerald → Sky → Indigo → Rose */
+      background: linear-gradient(135deg, #065f46 0%, #0369a1 25%, #4338ca 60%, #be185d 100%);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #065f46 0%, #4338ca 50%, #be185d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(3, 105, 161, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(3, 105, 161, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(3, 105, 161, 0);
+      }
+    }
+
+    .pulse-btn {
+      animation: pulse-ring 2s infinite;
+    }
+
+    /* Custom scrollbar for modal */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c7c7c7;
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  </style>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">
+  <div id="root"></div>
+  <script type="module" src="./index.tsx"></script>
+</body>
+
+</html>
