@@ -73,19 +73,19 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-4 backdrop-blur">
                         <span className="text-4xl">📝</span>
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Kiểm tra Giữa kỳ 2</h2>
-                    <p className="text-indigo-100">{QUIZ_NUM} câu hỏi • 40 phút</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Kiểm tra Cuối kỳ 2</h2>
+                    <p className="text-indigo-100">{QUIZ_NUM} câu hỏi • 5 phút</p>
                 </div>
                 <div className="p-8">
                     <div className="grid grid-cols-3 gap-4 mb-6">
                         <div className="text-center p-4 bg-indigo-50 rounded-2xl">
                             <div className="text-2xl mb-1">📝</div>
-                            <div className="text-2xl font-bold text-indigo-600">{totalQ}</div>
+                            <div className="text-2xl font-bold text-indigo-600">{QUIZ_NUM}</div>
                             <div className="text-xs text-gray-500">Câu hỏi</div>
                         </div>
                         <div className="text-center p-4 bg-purple-50 rounded-2xl">
                             <div className="text-2xl mb-1">⏱️</div>
-                            <div className="text-2xl font-bold text-purple-600">40</div>
+                            <div className="text-2xl font-bold text-purple-600">5</div>
                             <div className="text-xs text-gray-500">Phút</div>
                         </div>
                         <div className="text-center p-4 bg-pink-50 rounded-2xl">

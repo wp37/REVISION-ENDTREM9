@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import { allLessons as lessons, allQuizQuestions as quizQuestions } from './data';
+import { Lesson } from './types';
 import LessonModal from './components/LessonModal';
 import QuizSection from './components/QuizSection';
 
@@ -251,10 +252,10 @@ const App: React.FC = () => {
                 Kiểm tra trắc nghiệm
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-                Quiz <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">100 câu</span>
+                Quiz <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Random 20 câu</span>
               </h2>
               <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-                Bao phủ Unit 7-12 và Review 3-4. Có giải thích chi tiết sau khi nộp bài.
+                Random 20 câu từ ngân hàng 30 câu, giới hạn 5 phút. Có giải thích chi tiết sau khi nộp bài.
               </p>
             </div>
             <QuizSection questions={quizQuestions} />
