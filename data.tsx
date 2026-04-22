@@ -779,7 +779,7 @@ const newQuizQuestions: QuizQuestion[] = [
   { id: 86, question: "The _____ of the tour includes all destinations we will visit.", options: ["cost", "agent", "itinerary", "entrance"], correct: 2, explanation: "Itinerary = lịch trình chi tiết.", unit: 8 },
   { id: 87, question: "The word 'fluent' describes someone _____ language usage is proficient.", options: ["that", "which", "who", "whose"], correct: 3, explanation: "Whose + noun: 'whose language usage'.", unit: 9 },
   { id: 88, question: "Trang _____ me whether I knew about the Amazon Rainforest.", options: ["told", "said", "said to", "asked"], correct: 3, explanation: "Asked + if/whether cho câu tường thuật Yes/No.", unit: 7 },
-  { id: 89, question: "He suggested _____ that I follow his fitness regime.", options: ["me", "I", "for me", "to me"], correct: 0, explanation: "Suggest to sb that = đề nghị ai đó rằng. Tuy nhiên dạng phổ biến: He suggested to me that...", unit: 11 },
+  { id: 89, question: "He suggested _____ that I should follow his fitness regime.", options: ["me", "I", "for me", "to me"], correct: 3, explanation: "Suggest to sb that... = đề nghị/gợi ý cho ai đó rằng...", unit: 11 },
   { id: 90, question: "The optician has advised that I _____ contact lenses.", options: ["should wear", "would wear", "will wear", "must wear"], correct: 0, explanation: "Advise that + S + should + V.", unit: 11 },
   { id: 91, question: "The article advised against _____ too much meat.", options: ["to eating", "eating", "eat", "to eat"], correct: 1, explanation: "Advise against + V-ing = khuyên không nên.", unit: 11 },
 
@@ -793,8 +793,8 @@ const newQuizQuestions: QuizQuestion[] = [
   { id: 98, question: "OPPOSITE meaning: It was so 'embarrassing' to forget my friend's name.", options: ["awkward", "exciting", "confident", "thrilling"], correct: 2, explanation: "Embarrassing (xấu hổ) ↔ Confident (tự tin).", unit: 12 },
 
   // ĐỀ CƯƠNG – Reading: Electronic devices in education
-  { id: 99, question: "Schools use devices like laptops and tablets _____ teaching.", options: ["like", "love", "enjoy", "fancy"], correct: 0, explanation: "Devices like laptops = thiết bị như laptop. 'Like' = ví dụ như.", unit: 11 },
-  { id: 100, question: "These tools are used _____ teaching and learning.", options: ["improved", "improving", "improve", "to improve"], correct: 3, explanation: "Be used to + V = được dùng để.", unit: 11 },
+  { id: 99, question: "Schools use devices ______ laptops, tablets, and smartboards.", options: ["like", "love", "enjoy", "fancy"], correct: 0, explanation: "Devices like laptops = thiết bị như laptop. 'Like' = ví dụ như, giống như.", unit: 11 },
+  { id: 100, question: "Schools use devices like laptops, tablets, and smartboards ______ teaching and learning.", options: ["improved", "improving", "improve", "to improve"], correct: 3, explanation: "To improve = để cải thiện (chỉ mục đích).", unit: 11 },
 ];
 
 // Extend the exported arrays
