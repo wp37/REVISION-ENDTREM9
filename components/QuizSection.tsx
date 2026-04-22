@@ -12,11 +12,13 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
     const [state, setState] = useState<QuizState>('idle');
     const [current, setCurrent] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number>>({});
-    const [timeLeft, setTimeLeft] = useState(40 * 60);
+    const [timeLeft, setTimeLeft] = useState(5 * 60);
     const [showExplanations, setShowExplanations] = useState(false);
 
-    const totalQ = questions.length;
-    const QUIZ_TIME = 40 * 60;
+    const [questionsPool, setQuestionsPool] = useState<QuizQuestion[]>([]);
+
+    const QUIZ_NUM = Math.min(20, questions.length);
+    const QUIZ_TIME = 5 * 60;
 
     useEffect(() => {
         if (state !== 'active') return;
@@ -30,6 +32,15 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
     }, [state]);
 
     const startQuiz = () => {
+        // Shuffle the questions array (Fisher-Yates)
+        const shuffled = [...questions];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        // Take the first QUIZ_NUM questions
+        setQuestionsPool(shuffled.slice(0, QUIZ_NUM));
+
         setAnswers({});
         setCurrent(0);
         setTimeLeft(QUIZ_TIME);
@@ -46,9 +57,9 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
         setState('result');
     }, []);
 
-    const correctCount = questions.reduce((acc, q, i) => acc + (answers[i] === q.correct ? 1 : 0), 0);
-    const score = (correctCount / totalQ * 10).toFixed(1);
-    const percent = Math.round(correctCount / totalQ * 100);
+    const correctCount = questionsPool.reduce((acc, q, i) => acc + (answers[i] === q.correct ? 1 : 0), 0);
+    const score = (correctCount / QUIZ_NUM * 10).toFixed(1);
+    const percent = Math.round(correctCount / QUIZ_NUM * 100);
 
     const mins = Math.floor(timeLeft / 60);
     const secs = timeLeft % 60;
@@ -63,7 +74,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
                         <span className="text-4xl">📝</span>
                     </div>
                     <h2 className="text-2xl font-bold text-white mb-2">Kiểm tra Giữa kỳ 2</h2>
-                    <p className="text-indigo-100">{totalQ} câu hỏi • 40 phút</p>
+                    <p className="text-indigo-100">{QUIZ_NUM} câu hỏi • 40 phút</p>
                 </div>
                 <div className="p-8">
                     <div className="grid grid-cols-3 gap-4 mb-6">
@@ -124,7 +135,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
                             </div>
                             <div className="text-center p-4 bg-red-50 rounded-2xl border-2 border-red-100">
                                 <div className="text-2xl mb-1">❌</div>
-                                <div className="text-2xl font-bold text-red-500">{totalQ - correctCount}</div>
+                                <div className="text-2xl font-bold text-red-500">{QUIZ_NUM - correctCount}</div>
                                 <div className="text-xs text-gray-500">Sai</div>
                             </div>
                             <div className="text-center p-4 bg-indigo-50 rounded-2xl border-2 border-indigo-100">
@@ -147,7 +158,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
 
                 {showExplanations && (
                     <div className="space-y-4">
-                        {questions.map((q, i) => {
+                        {questionsPool.map((q, i) => {
                             const isCorrect = answers[i] === q.correct;
                             const letters = ['A', 'B', 'C', 'D'];
                             return (
@@ -179,7 +190,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
     }
 
     // ACTIVE
-    const q = questions[current];
+    const q = questionsPool[current];
     const letters = ['A', 'B', 'C', 'D'];
     const answeredCount = Object.keys(answers).length;
 
@@ -201,8 +212,8 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
                         style={{ width: `${timeLeft / QUIZ_TIME * 100}%` }} />
                 </div>
                 <div className="flex justify-between mt-2 text-xs text-gray-400">
-                    <span>Đã trả lời: {answeredCount}/{totalQ}</span>
-                    <span>Câu {current + 1}/{totalQ}</span>
+                    <span>Đã trả lời: {answeredCount}/{QUIZ_NUM}</span>
+                    <span>Câu {current + 1}/{QUIZ_NUM}</span>
                 </div>
             </div>
 
@@ -246,7 +257,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
                         >
                             <ChevronLeft className="w-4 h-4" /> Trước
                         </button>
-                        {current < totalQ - 1 ? (
+                        {current < QUIZ_NUM - 1 ? (
                             <button
                                 onClick={() => setCurrent(current + 1)}
                                 className="flex-1 py-3 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-1"
@@ -269,7 +280,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ questions }) => {
             <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
                 <div className="text-sm text-gray-500 mb-3 font-medium">Điều hướng câu hỏi:</div>
                 <div className="flex flex-wrap gap-2">
-                    {questions.map((_, i) => (
+                    {questionsPool.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => setCurrent(i)}

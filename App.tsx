@@ -46,7 +46,7 @@ const App: React.FC = () => {
     }
   };
 
-  const activeLesson = activeLessonId !== null ? lessons.find(l => l.id === activeLessonId) : null;
+  const activeLesson = activeLessonId !== null ? lessons.find((l: Lesson) => l.id === activeLessonId) : null;
 
   const unitColors: Record<number, string> = {
     7: 'bg-cyan-100 text-cyan-700',
@@ -89,10 +89,10 @@ const App: React.FC = () => {
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight drop-shadow-md tracking-tight">
                 Unit 7 → 12 <br />
-                <span className="text-pink-300">&amp; Review 3–4</span>
+                <span className="text-pink-300">&amp; Nâng Cao</span>
               </h1>
               <p className="text-xl text-white/90 mb-8 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-                Hệ thống ôn tập toàn diện: Kỳ quan thiên nhiên, Du lịch, Tiếng Anh Thế giới, Không gian, Thế giới đổi thay và Nghề nghiệp. Ngữ pháp: Câu tường thuật, Mệnh đề quan hệ, Mạo từ, Câu điều kiện.
+                Hệ thống ôn tập trọng tâm chương trình Tiếng Anh 9. Bao gồm Reported Speech, Relative Clauses, Adverbial Clauses, và Suggest/Advise.
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <a
@@ -108,7 +108,7 @@ const App: React.FC = () => {
                   className="bg-black/20 text-white px-8 py-4 rounded-full font-bold backdrop-blur hover:bg-black/30 transition border border-white/20 flex items-center"
                 >
                   <PenTool className="w-5 h-5 mr-2" />
-                  Làm bài Quiz
+                  Làm Quiz Random
                 </a>
               </div>
             </div>
@@ -188,7 +188,7 @@ const App: React.FC = () => {
                 : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
             >
-              📝 Quiz 100 câu
+              📝 Quiz (Random 20 câu / 5 phút)
             </button>
           </div>
         </div>
@@ -211,7 +211,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {lessons.map((lesson) => (
+              {lessons.map((lesson: Lesson) => (
                 <div
                   key={lesson.id}
                   onClick={() => handleOpenLesson(lesson.id)}
